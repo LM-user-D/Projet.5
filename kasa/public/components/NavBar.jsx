@@ -1,17 +1,20 @@
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
+import logoKasa from "../img/LOGO-Kasa.svg"
 
 export default function NavBar() {
 
-  function handclick(){
-    
-  }
+
+  
 
   return (
     <div className="nav-bar">
-        <img src="./img/LOGO-Kasa.svg" alt="Logo Kasa" />
+      <NavLink to='/'><img src={logoKasa} alt="Logo Kasa" /></NavLink> 
+        
+        
+        
         <ul>
-            <li><Link onClick={handclick} className="lien-nav" to='/'> Accueil</Link></li>
-            <li><Link className="lien-nav" to='/about'> A propos </Link></li>
+            <li><NavLink to='/'  className={(nav) => nav.isActive ? "active" : "" } > Accueil</NavLink></li>
+            <li><NavLink className="lien-nav" to='/about'> A propos </NavLink></li>
    
         </ul>
     </div>

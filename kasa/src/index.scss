@@ -11,7 +11,6 @@ body{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-
 }
 @mixin df{
   display: flex;
@@ -21,6 +20,7 @@ body{
 }
 
 @mixin styleBtnSlider{
+  position: absolute;
   height: 70px;  
   background-color: transparent;
   border: none;
@@ -30,10 +30,13 @@ body{
   width: 50px;
   cursor: pointer;
   transform: translateY(-50%);
+  opacity: 0.6;
+  transition: all 0.3s;
 }
 
 @mixin opacityDescription {
     opacity: 0;
+    display: none;
     transition: all 0.5s;
 }
 
@@ -53,6 +56,7 @@ body{
   color: #fff;
   left: 10px;
   font-size: 20px;
+
 }
 
 @mixin btnCollapse{
@@ -84,7 +88,10 @@ body{
       font-size: 20px;
       list-style: none; 
     }  
-    .lien-nav{
+
+
+    
+    a{
       text-decoration:none;
       color: #000000;
   
@@ -94,7 +101,7 @@ body{
         bottom: -5px;
         left: -5%;
         width: 110%;
-        height: 4px;
+        height: 2px;
         background-color: #000000;
         transform: scale(0); 
         transition: $transition;  
@@ -104,6 +111,25 @@ body{
       transform: scale(1); 
       } 
     } 
+
+
+    .active::after{
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: -5%;
+      width: 110%;
+      height: 2px;
+      background-color: #000000;
+      transform: scale(1); 
+      transition: $transition;  
+    }
+
+
+
+
+
+
   }
 }
 
@@ -184,6 +210,7 @@ body{
         font-size: 25px;
         color: #fff;
         font-weight: 500;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.466)
       }
     }
 
@@ -194,18 +221,14 @@ body{
 footer{
   @include df;
   flex-direction: column;
-  margin-top: 100px;
+  margin-top: 140px;
   height: 150px;
   width: 100%;
   background-color: #000000;
   color: #fff;
 }
 
-
 /* btn descrtiption */
-
-
-
 
 .slider{
   position: relative;
@@ -224,17 +247,22 @@ footer{
   }
   .btn-left{
     @include styleBtnSlider;
-    position: absolute;
     top: 50%;
     left: 0;
-    
+
   }
   .btn-right{
     @include styleBtnSlider;
-    position: absolute;
     top: 50%;
     right: 0;
   }
+
+  .btn-left:hover, .btn-right:hover{
+    opacity: 1;
+  }
+
+
+
 
   p{
     position: absolute;
@@ -250,7 +278,7 @@ footer{
 
 .presentation{
   display: grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: 80% 1fr;
   grid-template-rows: repeat(2, 1fr);
   width: 90%;
   position: relative;
@@ -280,11 +308,10 @@ footer{
     
     .start{
       position: absolute;
-      bottom: 15%;
+      bottom: 0;
       right: 0;
-      width: 100px;
+      width: 200px;
       height: 50px;
-      background-color: darkcyan
     }
 
     .host-img{
@@ -329,23 +356,20 @@ ul{
 
 }
 
-
 .collapse{
-  background-color: #06d213a8;
-
   width: 90%;
-  height: 200px;
-  margin: auto;
+  height: auto;
+  margin: 40px auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(1, 1fr);
   gap: 30px;
-  margin-top: 50px;
 
+  
   .content-description{
     position: relative;
     width: 100%;
-    height: 100%;
+    height: auto;
     background-color: $colorKasa;
     border-radius: 10px;
   } 
@@ -399,6 +423,108 @@ ul{
 
 
 }
+
+
+
+.img-apropos{
+  width: 90%;
+  height: 200px;
+  margin: 30px auto;
+  border-radius: $borderRadius;
+
+  
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: $borderRadius;
+  }
+}
+
+.collapse-content{
+
+  width: 70%;
+  margin: auto;
+  display: grid;
+  gap: 30px;
+
+  .content-description{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: $colorKasa;
+    border-radius: 10px;
+  } 
+
+  h3{
+    @include h3Collapse;
+  }
+
+  .grandir{
+    transition: $transition;
+    height: 100%;
+  }
+  .retrecir{
+    transition: $transition;
+    height: 40px;
+  }
+
+  .btn-description{
+    @include btnCollapse;
+  }
+  .top{
+    transition: $transition;
+    transform: rotate(-0deg);
+  }
+
+  .bottom{
+    transition: $transition;
+    transform: rotate(180deg);
+  }
+
+  p{
+    @include affichageDescription;
+    
+  }
+
+ ul{
+    @include affichageDescription;
+    list-style: none
+
+}
+ .content-description.retrecir p{
+     @include opacityDescription;
+     
+  }
+ .content-description.retrecir ul{
+     @include opacityDescription;
+  }
+
+
+}
+
+.error{
+  height: 367px;
+
+  @include df;
+  flex-direction: column;
+  color: $colorKasa;
+
+  h1{
+    font-size: 170px;
+    margin: 0;
+  }
+
+  p{
+    font-size: 25px;
+    text-align: center;
+
+  }
+  .lien-error{
+    margin-top: 100px;
+  }
+}
+
 
 @media (max-width: 1020px) {
 
@@ -485,7 +611,7 @@ ul{
 
 }
 
-@media (max-width: 800px) {
+@media (max-width: 835px) {
 /* Accueil */
 .nav-bar{
   img{
@@ -500,7 +626,6 @@ line-height: 110px;
 font-size: 35px;  
 }  
 }
-    
 /* lien vers les appartements  */
 .container{
 height: 500px;
@@ -513,8 +638,14 @@ padding: 30px;
   font-size: 20px;
   }}
 }
-
-
+.presentation{  
+  ul{ 
+    li{
+      margin: 0px 5px 0px 0px;
+      padding: 5px 10px;
+    }
+  }
+  }
 }
 
 @media (max-width : 700px){
@@ -532,45 +663,15 @@ padding: 30px;
 }
 
 .presentation{
-.titre{
-h2{
-  font-size: 30px;    
-}
-p{
-  margin: 5px 0;
-}
-}
-
-ul{ 
-  li{
-    padding: 5px 10px;
+  .titre{
+  h2{
+    font-size: 30px;    
+  }
+  p{
+    margin: 5px 0;
+  }
   }
 }
-
-}
-}
-
-@media (max-width: 600px) {
-.barre-accueil{ 
-  height: 130px;
-
-  h1{
-line-height: 75px;
-font-size: 35px;}
-}
-/* lien vers les appartements  */
-.container{
-height: 450px;
-gap: 15px;
-padding: 30px;
-
-.carts{
-  p{
-  bottom: 15px;
-  font-size: 18px;
-  }}
-}
-
 .slider{
   height: 320px;
 
@@ -596,7 +697,6 @@ padding: 30px;
     grid-column: 1/2;
     @include df;
     justify-content: space-between ;
-    background: forestgreen; 
     .start{
       position: relative;
       bottom: 0;
@@ -611,6 +711,66 @@ padding: 30px;
 }
 
 
+.collapse{
+  grid-template-columns: repeat(1, 1fr);
+  margin-top: 50px;
+  gap: 20px;
+  margin-top: 60px;
+}
+
+/* Footer */
+footer{
+  margin-top: 60px;
+  height: 240px;  
+}
+}
+
+@media (max-width: 600px) {
+.barre-accueil{ 
+  height: 130px;
+
+  h1{
+line-height: 75px;
+font-size: 35px;}
+}
+/* lien vers les appartements  */
+.container{
+height: 450px;
+gap: 15px;
+padding: 30px;
+
+.carts{
+  p{
+  bottom: 15px;
+  font-size: 18px;
+  }}
+}
+
+
+.presentation{
+  .titre{
+    h2{
+      margin-bottom: 0px;
+      font-size: 25px;
+    }
+  
+    
+  
+  }
+}
+
+.error{
+  h1{
+    font-size: 140px;
+  }
+  p{
+    padding: 10px;
+    font-size: 20px;
+  }
+  .lien-error{
+    margin-top: 90px;
+  }
+}
 
 
 }
@@ -661,12 +821,24 @@ gap: 10px;
 
 .slider{
   height: 290px;
+}
 
+
+.collapse{
+  grid-template-columns: repeat(1, 1fr);
+  margin-top: 50px;
+  gap: 20px;
+}
+
+/* Footer */
+footer{
+  margin-top: 90px;
 }
 
 }
 
-@media (max-width: 430px) {
+
+@media (max-width: 432px) {
 /* Accueil */
 .nav-bar{
   img{
@@ -686,6 +858,71 @@ ul {
   padding: 5px;
   text-align: left;
   }
+}
+
+.slider{
+  height: 260px;
+}
+
+.presentation{
+
+
+.titre{
+  h2{
+    margin-bottom: 0px;
+    font-size: 25px;
+  }
+  p{
+    margin: 5px;
+    font-size: 17px;
+  }
+
+}
+  .host{    
+    .start{
+      width: 220px;
+      img{
+        position: relative;
+        top: 10px;
+          width: 25px;
+      }
+    }
+    .host-img{
+      position:  absolute;
+      top: 0;
+      right: 35px;
+
+      @include df;
+      height: 54px;
+      width: 54px;
+      
+    img{
+      border-radius: 50%;
+      width: 100%;
+    }  
+
+  
+    
+    }
+   
+}
+
+ul{
+  padding: 0;
+  @include df;
+  justify-content: start;
+  
+  li{
+    list-style: none;
+    margin-right: 5px;
+
+    padding: 5px 10px;
+    font-size: 12px;
+    
+  }
+  
+}
+
 }
 
 
@@ -712,97 +949,3 @@ ul {
   }
 }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.img-apropos{
-  width: 90%;
-  height: 200px;
-  margin: 30px auto;
-  border-radius: $borderRadius;
-
-  
-  img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: $borderRadius;
-  }
-}
-
-.collapse-content{
-  width: 90%;
-  height: auto;
-  margin: auto;
-  display: grid;
-  grid-template-rows: repeat(4, 1fr);
-  gap: 30px;
-
-  .content-description{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background-color: $colorKasa;
-    border-radius: 10px;
-  } 
-
-  h3{
-    @include h3Collapse;
-  }
-
-  .grandir{
-    transition: $transition;
-    height: 100%;
-  }
-  .retrecir{
-    transition: $transition;
-    height: 40px;
-  }
-
-  .btn-description{
-    @include btnCollapse;
-  }
-  .top{
-    transition: $transition;
-    transform: rotate(-0deg);
-  }
-
-  .bottom{
-    transition: $transition;
-    transform: rotate(180deg);
-  }
-
-  p{
-    @include affichageDescription;
-    
-  }
-
- ul{
-    @include affichageDescription;
-
-
-  list-style: none
-
-}
- .content-description.retrecir p{
-     @include opacityDescription;
-     
-  }
- .content-description.retrecir ul{
-     @include opacityDescription;
-  }
-
-
-}
-

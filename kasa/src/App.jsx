@@ -4,11 +4,8 @@ import Accueil from '../public/pages/Accueil'
 import Apropos from '../public/pages/Apropos'
 import Appartements from '../public/pages/Appartements'
 import Notfound from '../public/pages/Notfound'
-
-
 import { useState, useEffect } from "react"
 import axios from 'axios'
-
 
 function App() { 
   const [useCart, setUseCart] = useState([])  
@@ -19,6 +16,9 @@ useEffect(() =>{
         }
         Carte()
 }, [])
+
+
+
   
 
 return (
@@ -29,7 +29,7 @@ return (
         
         <Route path='/about' element={<Apropos />}/>
 
-        <Route path='/appartement' element={<Appartements tab={useCart}/>}/>
+        <Route path={`/appartement/${useCart.title}`}element={<Appartements tab={useCart}/>}/>
 
         <Route path='*' element={<Notfound />}/>
 

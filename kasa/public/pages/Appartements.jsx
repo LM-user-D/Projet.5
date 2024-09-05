@@ -5,13 +5,16 @@ import Equipements from "../Appart Content/Equipements"
 import Slider from "../Appart Content/Slider"
 import Presentation from "../Appart Content/Presentation"
 
+import { useNavigate } from "react-router-dom"
 
 export default function Appartements({tab = []}) {
+  const navig = useNavigate()
 
+  console.log(navig);
   
   
 
-  
+
   return (
     <div className="appartement">
 

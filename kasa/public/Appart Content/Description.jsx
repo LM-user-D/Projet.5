@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import imgArrow from "../img/arrow.svg"
 
 export default function Description({tab = []}) {
 
@@ -9,13 +10,11 @@ export default function Description({tab = []}) {
   return (
     <div className={`content-description ${description ? 'grandir': 'retrecir'}`}>
 
-      
-      
         <h3>Description</h3>
 
         <button onClick={() => setDescription(!description)}
           className={`btn-description ${description ? 'top': 'bottom'}`}
-        ><img src="./img/arrow.svg" alt="fléche"/></button>
+        ><img src={imgArrow} alt="fléche"/></button>
         <p>{tab.description}</p>
       
         

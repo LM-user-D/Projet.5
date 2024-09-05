@@ -4,6 +4,8 @@ import NavBar from "../components/NavBar"
 import Footer from "../components/Footer"
 import Carts from "../components/Carts"
 
+import imgBarrAcc from "/img/sectionOne.png"
+
 export default function Accueil({tab =[], setStat}) {
 
   
@@ -13,7 +15,7 @@ export default function Accueil({tab =[], setStat}) {
       <NavBar />
 
       <div className='barre-accueil'>
-        <img src="/img/sectionOne.png" alt="photo vu sur la côte de la mer" />
+        <img src={imgBarrAcc} alt="photo vu sur la côte de la mer" />
         <h1>Chez vous, partout et ailleurs</h1>
       </div>
 

@@ -1,7 +1,4 @@
-import { useState, useEffect } from "react"
 import { Link } from 'react-router-dom'
-import axios from 'axios'
-import Appartements from "../pages/Appartements";
 export default function Carts({tab = [], setStat}) {
 
   
@@ -23,7 +20,7 @@ return (
     {
         tabLink.map((el, id)=>(
         <div className="carts" key={id}>
-        <Link onClick={()=> setStat(el, id)} to="/appartement" >
+        <Link onClick={()=> setStat(el, id)} to={`/appartement/${el.title}`}>
             <img src={el.cover} alt="" />
             <p>{el.title.slice(0, 30)}...</p>
         </Link>
