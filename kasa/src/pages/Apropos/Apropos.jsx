@@ -1,8 +1,8 @@
-import NavBar from "../components/NavBar"
-import Footer from "../components/Footer"
-import Collapse from "../components/Collapse"
-import imgAp from '../img/img-apropos.png'
-
+import NavBar from "../../components/NavBar/NavBar"
+import Footer from "../../components/Footer/Footer"
+import Collapse from "../../components/Collapse/Collapse"
+import imgAp from '../../img/img-apropos.png'
+import '../Apropos/apropos.scss'
 
 export default function Apropos() {
   const titre = [
@@ -28,20 +28,13 @@ export default function Apropos() {
         }
 
 ]
-  
   return (
     <div>
       <NavBar />
       <div className="img-apropos">
         <img src={imgAp} alt="" /> 
       </div>
-
       <Collapse titre={titre} />
-
-      
-
-
-
       <Footer />
     </div>
   )

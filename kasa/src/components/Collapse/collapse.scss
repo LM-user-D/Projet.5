@@ -1,0 +1,54 @@
+@import "../../style/var_mix.scss";
+
+.collapse-content{
+    width: 70%;
+    margin: auto;
+    display: grid;
+    gap: 30px;
+
+    .content-description{
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background-color: $colorKasa;
+      border-radius: 10px;
+    }  
+    h3{
+      @include h3Collapse;
+    }
+    .grandir{
+      transition: $transition;
+      height: 100%;
+    }
+    .retrecir{
+      transition: $transition;
+      height: 40px;
+    }
+    .btn-description{
+      @include btnCollapse;
+    }
+    .top{
+      transition: $transition;
+      transform: rotate(-0deg);
+    }
+    .bottom{
+      transition: $transition;
+      transform: rotate(180deg);
+    }
+    p{
+      @include affichageDescription;
+    }
+  
+   ul{
+      @include affichageDescription;
+      list-style: none
+    }
+   .content-description.retrecir p{
+       @include opacityDescription;
+       
+    }
+   .content-description.retrecir ul{
+       @include opacityDescription;
+    }
+  
+}

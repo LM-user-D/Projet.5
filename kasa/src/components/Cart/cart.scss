@@ -1,0 +1,115 @@
+@import "../../style/var_mix.scss";
+/* lien vers les appartements  */
+.container{
+    background-color: $colorbg;
+    width: 85%;
+    height: 700px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(7, 50%);
+    gap: 30px;
+    margin: auto;
+    padding: 30px;
+    border-radius: $borderRadius;
+  
+    
+      .carts{
+        position: relative;
+        height: 100%;
+        width: 100%;
+  
+        img{
+          width: 100%;
+          height: 90%;
+          object-fit: cover;
+          border-radius: $borderRadius;
+  
+        }
+        p{
+          position: absolute;
+          left: 5px;
+          bottom: 35px;
+          font-size: 25px;
+          color: #fff;
+          font-weight: 500;
+          text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.466)
+        }
+      }
+  
+}
+
+@media (max-width: 1020px) {
+.container{
+    height: 600px;
+    gap: 20px;
+    padding: 30px;
+
+.carts{
+    p{
+    bottom: 35px;
+    font-size: 20px;
+    }}
+}
+}
+@media (max-width: 835px) {
+    .container{
+     height: 500px;
+     gap: 15px;
+     padding: 30px;
+    .carts{
+        p{
+        bottom: 25px;
+        font-size: 20px;
+        }}
+    }
+}
+    
+ @media (max-width : 700px){
+    .container{
+      height: 450px;
+      gap: 15px;
+      padding: 30px;
+    
+    .carts{
+      p{
+      bottom: 15px;
+      font-size: 18px;
+      }}
+    }
+}
+
+@media (max-width: 600px) {
+    .container{
+      height: 450px;
+      gap: 15px;
+      padding: 30px;
+    
+    .carts{
+      p{
+      bottom: 15px;
+      font-size: 18px;
+      }}
+    }
+}
+    
+@media (max-width: 555px) {  
+    /* lien vers les appartements  */
+    .container{
+      width: 85%;
+      height: 1000px;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(20, 25%);
+      gap: 10px;
+    
+      .carts{
+       height: 100%;
+       width: 100%;
+      p{
+        bottom: 15px;
+        font-size: 25px;
+      }
+      }
+    }
+}

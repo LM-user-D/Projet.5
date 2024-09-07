@@ -1,7 +1,7 @@
 
 import { useState } from "react";
-import imgArrow from "../img/arrow.svg"
-
+import imgArrow from "../../../img/arrow.svg"
+import '../Des_Equip/desEquip.scss'
 export default function Description({tab = []}) {
 
 

@@ -1,25 +1,20 @@
-import './index.scss'
+import '../src/style/index.scss'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import Accueil from '../public/pages/Accueil'
-import Apropos from '../public/pages/Apropos'
-import Appartements from '../public/pages/Appartements'
-import Notfound from '../public/pages/Notfound'
+import Accueil from './pages/accueil/Accueil'
+import Apropos from './pages/Apropos/Apropos'
+import Appartements from './pages/Appartements'
+import Notfound from './pages/error/Notfound'
 import { useState, useEffect } from "react"
 import axios from 'axios'
 
 function App() { 
   const [useCart, setUseCart] = useState([])  
-
-useEffect(() =>{
-        async function Carte() {
-        await axios.get('../logements.json').then(dt => setUseCart(dt.data))
-        }
-        Carte()
-}, [])
-
-
-
-  
+  useEffect(() =>{
+          async function Carte() {
+          await axios.get('./logements.json').then(dt => setUseCart(dt.data))
+          }
+          Carte()
+  }, [])
 
 return (
     <div className="">
@@ -29,7 +24,7 @@ return (
         
         <Route path='/about' element={<Apropos />}/>
 
-        <Route path={`/appartement/${useCart.title}`}element={<Appartements tab={useCart}/>}/>
+        <Route path={`/appartement/${useCart.title}`} element={<Appartements tab={useCart}/>}/>
 
         <Route path='*' element={<Notfound />}/>
 

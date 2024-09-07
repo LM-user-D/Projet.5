@@ -1,5 +1,6 @@
-import imgStart from '../img/start.svg'
-import imgStartInac from '../img/start-inactive.svg'
+import imgStart from '../../../img/start.svg'
+import imgStartInac from '../../../img/start-inactive.svg'
+import '../Presentation/presentation.scss'
 
 export default function Presentation({tab}) {
     const title = tab.title

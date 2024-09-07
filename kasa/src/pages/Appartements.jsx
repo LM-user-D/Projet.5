@@ -1,9 +1,9 @@
-import NavBar from "../components/NavBar"
-import Footer from "../components/Footer"
-import Description from "../Appart Content/Description"
-import Equipements from "../Appart Content/Equipements"
-import Slider from "../Appart Content/Slider"
-import Presentation from "../Appart Content/Presentation"
+import NavBar from "../components/NavBar/NavBar"
+import Footer from "../components/Footer/Footer"
+import Description from "../components/Appart Content/Des_Equip/Description"
+import Equipements from "../components/Appart Content/Des_Equip/Equipements"
+import Slider from "../components/Appart Content/Slider/Slider"
+import Presentation from "../components/Appart Content/Presentation/Presentation"
 
 import { useNavigate } from "react-router-dom"
 

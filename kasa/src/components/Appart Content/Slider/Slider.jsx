@@ -1,3 +1,4 @@
+import '../Slider/slider.scss'
 import { useState } from "react"
 
 export default function Slider({tab =[]}) {
@@ -12,7 +13,6 @@ export default function Slider({tab =[]}) {
     }
     else {setnumb(imgLength - 1)}
   }
-
  /* */
     function clickRight(){
     if(numb < imgLength -1){
@@ -21,10 +21,6 @@ export default function Slider({tab =[]}) {
     else(setnumb(0))
       
   } 
-
-
-
-
   return (
     <div className="slider">
         <p>{numb + 1}/{imgLength}</p>

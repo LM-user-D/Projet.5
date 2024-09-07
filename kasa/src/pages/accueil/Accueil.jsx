@@ -1,15 +1,11 @@
-
-
-import NavBar from "../components/NavBar"
-import Footer from "../components/Footer"
-import Carts from "../components/Carts"
-
-import imgBarrAcc from "/img/sectionOne.png"
+import NavBar from "../../components/NavBar/NavBar"
+import Footer from "../../components/Footer/Footer"
+import Carts from "../../components/Cart/Carts"
+import imgBarrAcc from "../../img/sectionOne.png"
+import '../accueil/accueil.scss'
 
 export default function Accueil({tab =[], setStat}) {
-
-  
-  
+ 
   return (
     <div>
       <NavBar />

@@ -1,0 +1,88 @@
+@import '../../style/var_mix.scss';
+
+.barre-accueil{
+    position: relative;
+    width: 88%;
+    height: 180px;
+    margin: 50px auto;
+    border-radius: $borderRadius;
+    overflow: hidden;
+  
+    &::before{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #333333af;
+      z-index: 1;
+    }
+  
+    img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: $borderRadius;
+    }
+  
+    h1{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    line-height: 90px;
+    text-align: center;
+    font-size: 45px;  
+    color: #fff;
+    z-index: 2;
+    }
+  
+  
+  }
+
+@media (max-width: 835px) {  
+.barre-accueil{ 
+    
+h1{
+line-height: 110px;
+font-size: 35px;  
+}  
+}
+}
+@media (max-width: 600px) {
+    .barre-accueil{ 
+      height: 130px;
+      h1{
+      line-height: 75px;
+      font-size: 35px;}
+    }
+}
+@media (max-width: 555px) {
+.barre-accueil{ 
+    height: 130px;
+    h1{
+    line-height: 45px;
+    font-size: 35px;  
+    padding: 0px;
+    text-align: left;
+    }
+}    
+}
+@media (max-width: 432px) {
+.barre-accueil{ 
+    h1{
+    line-height: 45px;
+    font-size: 30px;  
+    padding: 5px;
+    text-align: left;
+    }
+}    
+}  
+@media (max-width: 370px) {
+
+.barre-accueil{     
+    h1{
+    font-size: 25px;  
+    }
+}
+}

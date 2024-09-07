@@ -1,20 +1,8 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import '../Cart/cart.scss'
 export default function Carts({tab = [], setStat}) {
 
-  
-/* const [useCart, setUseCart] = useState([])
-   
-useEffect(() =>{
-        async function Carte() {
-        await axios.get('../logements.json').then(dt => setUseCart(dt.data))
-        
-        }
-        Carte()
-}, [])
-   */
-
 const tabLink = tab
-
 return (
     <div className="container">
     {

@@ -1,0 +1,63 @@
+$colorKasa : #FF6060;
+$colorbg : #F6F6F6;
+$borderRadius: 25px;
+$transition:  all 0.5s;
+
+@mixin df{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+  }
+
+@mixin styleBtnSlider{
+position: absolute;
+height: 70px;  
+background-color: transparent;
+border: none;
+outline: none;
+font-size: 60px;
+color: #fff;
+width: 50px;
+cursor: pointer;
+transform: translateY(-50%);
+opacity: 0.6;
+transition: all 0.3s;
+}
+
+@mixin opacityDescription {
+    opacity: 0;
+    display: none;
+    transition: all 0.5s;
+}
+
+@mixin affichageDescription{
+position: relative;
+top: -20px;
+padding: 10px;
+height: calc( 100% - 65px );
+border-radius: 0 0 10px 10px;
+background-color: $colorbg;
+font-size: 17px;
+}
+
+@mixin h3Collapse{
+position: relative;
+top: -15px;
+color: #fff;
+left: 10px;
+font-size: 20px;
+
+}
+
+@mixin btnCollapse{
+position: absolute;
+top: 10px;
+right: 10px;
+cursor: pointer;
+border: none;
+background-color: transparent;
+}
+
+
+
+

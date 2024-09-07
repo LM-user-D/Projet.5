@@ -1,0 +1,29 @@
+@import "../../style/var_mix.scss";
+/* Footer */
+footer{
+    @include df;
+    flex-direction: column;
+    margin-top: 140px;
+    height: 150px;
+    width: 100%;
+    background-color: #000000;
+    color: #fff;
+  }
+@media (max-width : 700px){
+/* Footer */
+footer{
+    margin-top: 60px;
+    height: 240px;  
+}
+}
+@media (max-width: 555px) {
+/* Footer */
+footer{
+    margin-top: 90px ;
+    width: 105%;
+}
+}
+
+    
+ 
+    
