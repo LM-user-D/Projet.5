@@ -4,34 +4,27 @@ import Accueil from './pages/accueil/Accueil'
 import Apropos from './pages/Apropos/Apropos'
 import Appartements from './pages/Appartements'
 import Notfound from './pages/error/Notfound'
-import { useState, useEffect } from "react"
-import axios from 'axios'
+import { useState } from "react"
+import NavBar from './components/NavBar/NavBar'
+import Footer from './components/Footer/Footer'
 
 function App() { 
-  const [useCart, setUseCart] = useState([])  
-  useEffect(() =>{
-          async function Carte() {
-          await axios.get('./logements.json').then(dt => setUseCart(dt.data))
-          }
-          Carte()
-  }, [])
+  const [cart, setCart] = useState([])  
 
 return (
-    <div className="">
+    <>
     <BrowserRouter>
+    <NavBar />
       <Routes>
-        <Route path='/' element={<Accueil tab={useCart} setStat={setUseCart}/>}/>
-        
+        <Route path='/' element={<Accueil tab={cart} setStat={setCart}/>}/>
+        <Route path={`/appartement/${cart.title}`} element={<Appartements tab={cart}/>}/>
         <Route path='/about' element={<Apropos />}/>
-
-        <Route path={`/appartement/${useCart.title}`} element={<Appartements tab={useCart}/>}/>
-
         <Route path='*' element={<Notfound />}/>
-
       </Routes>
+       
     </BrowserRouter>
-
-    </div>
+    <Footer />
+    </>
   ) 
 }
 

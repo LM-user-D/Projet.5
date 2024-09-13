@@ -1,9 +1,7 @@
-
 import { useState } from "react";
 import imgArrow from "../../../img/arrow.svg"
 import '../Des_Equip/desEquip.scss'
 export default function Description({tab = []}) {
-
 
   const [description, setDescription] = useState(false)
   
@@ -17,7 +15,6 @@ export default function Description({tab = []}) {
         ><img src={imgArrow} alt="fléche"/></button>
         <p>{tab.description}</p>
       
-        
     </div>
   )
 }

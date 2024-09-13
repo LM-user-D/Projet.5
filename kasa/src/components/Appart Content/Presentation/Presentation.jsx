@@ -8,8 +8,7 @@ export default function Presentation({tab}) {
     const name = tab.host
     const numstr = parseInt(tab.rating)
     const tags = tab.tags
- 
- 
+
     let tabstr = []
     function etoiles(){
   
@@ -24,7 +23,6 @@ export default function Presentation({tab}) {
      }
     }  
     etoiles()
-  
  
     return (
 <div className="presentation">
@@ -40,20 +38,18 @@ export default function Presentation({tab}) {
                     <img src={el} alt='Etoiles' key={id} ></img>
                 ))
             }
-
         </div>
+
         <div className="host-img">
             <p>{name.name}</p>   
             <img src={name.picture} alt="" />
         </div>
     </div>
-    
-    
     <ul>
         {
-            tags.map((el, id)=>(
-                <li key={id}>{el}</li>
-            ))
+        tags.map((el, id)=>(
+            <li key={id}>{el}</li>
+        ))
         }
     </ul>
 </div>

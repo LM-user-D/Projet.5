@@ -13,8 +13,8 @@ export default function Slider({tab =[]}) {
     }
     else {setnumb(imgLength - 1)}
   }
- /* */
-    function clickRight(){
+
+  function clickRight(){
     if(numb < imgLength -1){
       setnumb(numb + 1)
     }
@@ -28,8 +28,6 @@ export default function Slider({tab =[]}) {
 
         <button onClick={clickLeft} className="btn-left">&#10094;</button>
         <button onClick={clickRight} className="btn-right">&#10095;</button>
-      
-
     </div>
   )
 }

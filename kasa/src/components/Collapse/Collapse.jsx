@@ -1,10 +1,10 @@
 import { useState } from "react"
 import arrow from "../../img/arrow.svg"
 import '../Collapse/collapse.scss'
+import about from '../../Data/about.json'
 
-export default function Collapse({titre}) {   
-    const clps = titre
-  const [collapse, setDescription] = useState(Array(clps.length).fill(false))
+export default function Collapse() {   
+  const [collapse, setDescription] = useState(Array(about.length).fill(false))
 
   const toggleItem = (index) => {
     setDescription((prev) =>
@@ -12,17 +12,21 @@ export default function Collapse({titre}) {
     );
   };
 
+
+  console.log(about);
+  
+
 return (
 <div className="collapse-content">
     {
-    clps.map((el, id) => (
+    about.map((el, id) => (
       <div key={id} className={`content-description ${collapse[id] ? 'grandir': 'retrecir'}`}>
-      <h3>{el.titre}</h3>
+      <h3>{el.title}</h3>
 
       <button onClick={() => toggleItem(id)} 
          className={`btn-description ${collapse[id] ? 'top': 'bottom'}`} ><img src={arrow} alt="fléche" />
       </button>
-       <p>{el.txt}</p>   
+       <p>{el.content}</p>   
       </div>
      )) 
      }
