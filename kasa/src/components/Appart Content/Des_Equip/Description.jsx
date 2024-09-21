@@ -1,20 +1,16 @@
-import { useState } from "react";
-import imgArrow from "../../../img/arrow.svg"
 import '../Des_Equip/desEquip.scss'
+import Collapse from '../../Collapse/Collapse'
 export default function Description({tab = []}) {
-
-  const [description, setDescription] = useState(false)
+  
+  const titre = 'Description'
+  const description =  tab.description
   
   return (
-    <div className={`content-description ${description ? 'grandir': 'retrecir'}`}>
+    <>
+    <div className="content-description">
 
-        <h3>Description</h3>
-
-        <button onClick={() => setDescription(!description)}
-          className={`btn-description ${description ? 'top': 'bottom'}`}
-        ><img src={imgArrow} alt="fléche"/></button>
-        <p>{tab.description}</p>
-      
+    <Collapse titre={titre} content={description}/>
     </div>
+   </>
   )
 }

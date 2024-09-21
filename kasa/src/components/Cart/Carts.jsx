@@ -3,9 +3,9 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import '../Cart/cart.scss'
-export default function Carts({setStat}) {
+export default function Carts() {
+    const [useCart, setUseCart] = useState([]) 
 
-    const [useCart, setUseCart] = useState([])  
     useEffect(() =>{
             async function Carte() {
             await axios.get('../src/Data/logements.json').then(dt => setUseCart(dt.data))
@@ -18,7 +18,7 @@ return (
     {
         useCart.map((el, id)=>(
         <div className="carts" key={id}>
-            <NavLink key={id} onClick={()=> setStat(el, id)} to={`/appartement/${el.title}`}>
+            <NavLink key={id} to={`/appartement/${el.id}`}>
              <img src={el.cover} alt="" />
              <p>{el.title.slice(0, 30)}...</p>
             </NavLink>

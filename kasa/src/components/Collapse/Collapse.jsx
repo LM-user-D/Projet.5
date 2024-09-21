@@ -1,36 +1,31 @@
 import { useState } from "react"
-import arrow from "../../img/arrow.svg"
+import imgArrow from "../../img/arrow.svg"
 import '../Collapse/collapse.scss'
-import about from '../../Data/about.json'
 
-export default function Collapse() {   
-  const [collapse, setDescription] = useState(Array(about.length).fill(false))
-
-  const toggleItem = (index) => {
-    setDescription((prev) =>
-      prev.map((isOpen, i) => (i === index ? !isOpen : isOpen))
-    );
-  };
-
-
-  console.log(about);
-  
+export default function Collapse({titre, content}) {   
+  const [collapse, setDescription] = useState(false)
 
 return (
-<div className="collapse-content">
-    {
-    about.map((el, id) => (
-      <div key={id} className={`content-description ${collapse[id] ? 'grandir': 'retrecir'}`}>
-      <h3>{el.title}</h3>
 
-      <button onClick={() => toggleItem(id)} 
-         className={`btn-description ${collapse[id] ? 'top': 'bottom'}`} ><img src={arrow} alt="fléche" />
-      </button>
-       <p>{el.content}</p>   
-      </div>
-     )) 
-     }
+<div className="collapse-content">
+   <div className={`content-description equipement ${collapse ? 'grandir': 'retrecir'}`}>
+     
+     <h3>{titre}</h3>
+     <button onClick={() => setDescription(!collapse)}
+       className={`btn-description ${collapse ? 'top': 'bottom'}`}
+     ><img src={imgArrow} alt="fléche"/></button>
+
+     <ul>  
+       {
+        content
+       }
+     </ul>
+ </div> 
+
 </div>
+
+
+
 
 
 )}

@@ -11,8 +11,5 @@ export default function Accueil({tab =[], setStat}) {
       <Banner img={imgBarrAcc} title={title}/>
       <Carts tab={tab} setStat={setStat}/>
     </>
-
-
-
   )
 }
